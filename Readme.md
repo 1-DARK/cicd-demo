@@ -153,3 +153,22 @@ Then check:
 docker ps
 docker logs <container_id>
 ```
+
+Step 10: Make a Real Change and Verify Auto-Deploy
+
+Edit index.js:
+
+```
+javascript
+return res.json({ msg: "deployed via docker + actions!" });
+```
+
+Push it:
+
+```
+git add .
+git commit -m "update message"
+git push origin main
+```
+
+Watch the Actions tab run automatically → refresh your server URL → see the change live.
