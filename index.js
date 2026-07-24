@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   return res.json({ msg: "hi" });
-  return res.json({ msg: "deployed via docker + actions!" });
+  return res.json({ msg: "Deployed via docker + actions!" });
 });
 
 app.listen(PORT, () => {
