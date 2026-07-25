@@ -65,7 +65,12 @@ Manual setup is done. Now let's automate it.
 
 STEP 6:
 
-- On your local machine Terminal : ssh-keygen -t ed25519 -f github-deploy-key -N ""
+- Back on your local machine (not the server):
+  ssh-keygen -t ed25519 -f github-deploy-key -N ""
+- On your local machine Terminal : cat github-deploy-key.pub
+- SSH into your server (using your original key):
+  ssh -i my-key.pem ubuntu@YOUR_EC2_IP
+- echo "PASTE_YOUR_PUBLIC_KEY_HERE" >> ~/.ssh/authorized_keys
 
 ```
 This creates two files:
