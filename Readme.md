@@ -65,23 +65,32 @@ Manual setup is done. Now let's automate it.
 
 STEP 6:
 
-- On your local machine (not the server):
+- Back on your local machine (not the server):
   ssh-keygen -t ed25519 -f github-deploy-key -N ""
-- This creates two files:
-  - github-deploy-key      (private key - goes into GitHub Secrets)
-  - github-deploy-key.pub  (public key - goes onto the server
-- Print the public key:
-  cat github-deploy-key.pub
-  → copy the entire single-line output
-- SSH into your server using your original key:
+- On your local machine Terminal : cat github-deploy-key.pub
+- SSH into your server (using your original key):
   ssh -i my-key.pem ubuntu@YOUR_EC2_IP
+- echo "PASTE_YOUR_PUBLIC_KEY_HERE" >> ~/.ssh/authorized_keys
+
+```
+This creates two files:
+
+github-deploy-key (private key — goes into GitHub Secrets)
+
+github-deploy-key.pub (public key — goes onto the server)
+
+```
 
 - cat github-deploy-key.pub
 - ssh -i my-key.pem ubuntu@YOUR_EC2_IP "cat >> ~/.ssh/authorized_keys"
-- Once inside the server, append the key:
-  echo "PASTE_YOUR_PUBLIC_KEY_HERE" >> ~/.ssh/authorized_keys
-- Test from your LOCAL machine 
-- ssh -i github-deploy-key ubuntu@YOUR_EC2_IP
+
+```
+What to replace
+
+YOUR_EC2_IP → your actual EC2 public IP (like before)
+
+my-key.pem → path to your actual .pem file if it's not in the current folder
+```
 
 STEP 7:Add GitHub Secrets
 
