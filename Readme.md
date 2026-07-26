@@ -81,17 +81,6 @@ github-deploy-key.pub (public key — goes onto the server)
 
 ```
 
-- cat github-deploy-key.pub
-- ssh -i my-key.pem ubuntu@YOUR_EC2_IP "cat >> ~/.ssh/authorized_keys"
-
-```
-What to replace
-
-YOUR_EC2_IP → your actual EC2 public IP (like before)
-
-my-key.pem → path to your actual .pem file if it's not in the current folder
-```
-
 STEP 7:Add GitHub Secrets
 
 - Repo → Settings → Secrets and variables → Actions → New repository secret
